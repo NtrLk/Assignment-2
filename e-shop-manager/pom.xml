@@ -16,33 +16,31 @@
     </dependency>
   </dependencies>
     <properties>
-    		
              <maven.compiler.source>1.8</maven.compiler.source>
              <maven.compiler.target>1.8</maven.compiler.target>
         </properties>
         <build>
-     		<pluginManagement>
-     				<plugins>
-	     				<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-checkstyle-plugin</artifactId>
-							<version>3.1.2</version>
-							<configuration>
-								<failsOnError>true</failsOnError>
-			
-							        <configLocation>Checkstyle.xml</configLocation>
-								<consoleOutput>true</consoleOutput>
-							</configuration>
-							<executions>
-								<execution>
-									<phase>validate</phase> <!-- NELLA PRIMA FASE Xp-->
-									<goals>
-										<goal>checkstyle</goal>
-									</goals>
-								</execution>
-							</executions>
-						</plugin>
-     				</plugins>
-     		</pluginManagement>
+ 				<plugins>
+     				<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-checkstyle-plugin</artifactId>
+						<version>3.1.2</version>
+						<configuration>
+							<failsOnError>true</failsOnError>
+						        <configLocation>Checkstyle.xml</configLocation>
+							<consoleOutput>true</consoleOutput>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>validate</phase> <!-- NELLA PRIMA FASE Xp-->
+								<goals>
+									<goal>checkstyle</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+ 				</plugins>
+ 
      	</build>
+
 </project>
