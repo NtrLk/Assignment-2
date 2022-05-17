@@ -1,39 +1,45 @@
 <?xml version="1.0"?>
 <!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
 "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
-<module name="Checker"> modificare header
-	<module name="RegexpHeader">
-    <property name="headerFile" value="////////////////////////////////////////////////////////////////////
-    // [Raul] [Seganfreddo] [1226293] 
-    // [Saad] [Mounib] [2052815] 
-    //////////////////////////////////////////////////////////////////// "/>
-	</module>
-</module>   (&&, ||, &, | and ^)
-  <module name="BooleanExpressionComplexity">
-  <property name="max" value="5"/> 
-</module>
-<module name="CyclomaticComplexity"/>
-<property name="max" value="7"/>
-<property name="tokens" value="LITERAL_WHILE, LITERAL_DO, LITERAL_FOR, LITERAL_IF, LITERAL_SWITCH, LITERAL_CASE, LITERAL_CATCH, QUESTION, LAND, LOR"/>
-</module>
-<module name="FileLength">
-  <property name="max" value="100"/> → main ?
-</module>
-<module name="LineLength">
-  <property name="max" value="70"/>
-</module>
-<module name="MethodLength"/>
-<property name="tokens" value="METHOD_DEF"/>
-  <property name="max" value="30"/>
-</module>
- <module name="EmptyCatchBlock">
-  <property name="commentFormat" value="// Va bene"/>
-  <property name="exceptionVariableName" value="expected|ignore"/>
-</module>
-<module name="FileTabCharacter">
-  <property name="eachLine" value="false”/> // chiediamo 
-</module>
-<module name="AvoidStarImport"/>
-<module name="IllegalImport"/>  ???
-<module name="NeedBraces"/>
 
+<module name="Checker">
+	<module name="RegexpHeader">
+	  <property name="headerFile" value="LICENCE.txt"/>
+	</module>
+	
+  <module name="TreeWalker">
+	<module name="AvoidStarImport"/> <!-- non va pi+ -->
+	<module name="BooleanExpressionComplexity">
+  	<property name="max" value="5"/> 
+    </module>
+	
+    <module name="CyclomaticComplexity">
+	<property name="max" value="7"/>
+	<property name="tokens" value="LITERAL_WHILE, LITERAL_DO, LITERAL_FOR, LITERAL_IF, LITERAL_SWITCH, LITERAL_CASE, LITERAL_CATCH, QUESTION, LAND, LOR"/>
+	</module>
+    
+    <module name="MethodLength">
+	<property name="tokens" value="METHOD_DEF"/>
+	  <property name="max" value="30"/>
+	</module>
+	
+	<module name="EmptyCatchBlock">
+	  <property name="commentFormat" value="// Va bene"/>
+	  <property name="exceptionVariableName" value="expected|ignore"/>
+	</module>
+	
+	<module name="IllegalImport"/>  
+	<module name="NeedBraces"/>
+	
+    
+  </module>
+  
+  <module name="FileLength">
+  <property name="max" value="1500"/>
+  </module>
+
+  <module name="LineLength">
+  <property name="max" value="120"/>
+  </module>
+  
+</module>	

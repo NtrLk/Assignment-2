@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class ArticoloTest {
 
-	Articolo articolo;
+	/*Articolo articolo;
 	Articolo articoloDue;
     @Before
     public void setUp()
@@ -27,9 +27,7 @@ public class ArticoloTest {
 	public void getNome()
 	{
 		
-		
-		/* */
-		
+
 		assertEquals("A",articolo.getNome());
 	}
 	
@@ -56,5 +54,77 @@ public class ArticoloTest {
 			
 		
 	}
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/* asdas */
+	
+	
+	
+	
 	
 }
