@@ -5,6 +5,6 @@
 package it.unipd.mtss;
 
 public interface EItem {
-	int getPrezzo();
+	Double getPrezzo();
 	String getNome();	
 }
