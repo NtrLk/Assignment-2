@@ -2,15 +2,19 @@ package it.unipd.mtss;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.time.*;
+import java.time.LocalTime;
 
 public class Ordine {
 	private List<Articolo> ArticoliOrdinati;
 	LocalTime ora;
 
 	public Ordine(LocalTime ora) {
-		 new ArrayList<Articolo>();
-		 this.ora = ora;
+		new ArrayList<Articolo>();
+		// controllo che l'ora non sia nulla e che sia un ora valida
+		if (ora == null || ora.getHour() < 0 || ora.getHour() > 23 || ora.getMinute() < 0 || ora.getMinute() > 59) {
+			throw new IllegalArgumentException("ora non valida");
+		}
+		this.ora = ora;
 	}
 	
 	public void addOrdine(String nome,Double prezzo) {
