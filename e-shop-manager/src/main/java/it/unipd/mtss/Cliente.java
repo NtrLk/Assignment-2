@@ -1,3 +1,7 @@
+/*////////////////////////////////////////////////////////////////////
+// [Raul] [Seganfreddo] [1226293] 
+// [Saad] [Mounib] [2052815] 
+////////////////////////////////////////////////////////////////////*/ 
 package it.unipd.mtss;
 
 public class Cliente implements User{
@@ -17,7 +21,7 @@ public class Cliente implements User{
 			throw new IllegalArgumentException("luogo di nascita non può essere null");
 		}
 		if (age < 10) {
-			throw new IllegalArgumentException("age non può essere negativo");
+			throw new IllegalArgumentException("l'età deve essere almeno 10");
 		}
 		this.nome = nome;
 		this.cognome = cognome;
