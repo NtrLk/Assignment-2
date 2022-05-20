@@ -6,6 +6,11 @@
 package it.unipd.mtss;
 
 public class BillException extends Exception{
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 		public BillException(String message) {
 			super(message);
 		}

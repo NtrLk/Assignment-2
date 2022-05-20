@@ -1,7 +1,3 @@
-/*////////////////////////////////////////////////////////////////////
-// [Raul] [Seganfreddo] [1226293] 
-// [Saad] [Mounib] [2052815] 
-////////////////////////////////////////////////////////////////////*/
 package it.unipd.mtss;
 
 import static org.junit.Assert.assertEquals;
@@ -42,6 +38,7 @@ public class ArticoloTest {
 	@Test
 	public void getPrezzo()
 	{
+		Double x = 20.0;
 		assertEquals(articolo.getPrezzo(),x);
 	}
 	
