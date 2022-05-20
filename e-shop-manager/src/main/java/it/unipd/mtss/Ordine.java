@@ -28,7 +28,7 @@ public class Ordine {
 		int minuti;
 		ore = ora.getHour();
 		minuti = ora.getMinute();
-		String oraString = ore + "-" + minuti;
+		String oraString = Integer.toString(ore) + "-" + Integer.toString(minuti);
 		return oraString;
 	}
 }
