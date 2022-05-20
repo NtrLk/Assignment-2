@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import java.time.DateTimeException;
 import java.time.LocalTime;
 
 public class OrdineTest {
@@ -13,12 +14,12 @@ public class OrdineTest {
 		new Ordine(null);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = DateTimeException.class)
 	public void oraNonValida() {
 		new Ordine(LocalTime.of(24, 0));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = DateTimeException.class)
 	public void minutiNonValidi() {
 		new Ordine(LocalTime.of(0, 60));
 	}

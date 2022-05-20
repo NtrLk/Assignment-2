@@ -21,8 +21,7 @@ public static void main(String [] args) {
 		Cliente nove = new Cliente(20,"AV", "rterc","Padova");
 		Cliente dieci = new Cliente(20,"AT", "rterc","Padova");
 		
-		
-		Ordine o1 = new Ordine();
+		Ordine o1 = new Ordine(LocalTime.of(12, 30));
 		o1.addOrdine("Processori", 10.0);
 		o1.addOrdine("Processori", 10.0);
 		o1.addOrdine("Processori", 10.0);
