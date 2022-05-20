@@ -9,6 +9,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.*;
+
 
 
 public class ArticoloTest {
@@ -18,25 +20,25 @@ public class ArticoloTest {
     @Before
     public void setUp()
     {
-    	articolo = new Articolo("Tastiere",20);
+    	articolo = new Articolo("Tastiere",20,LocalTime.of(12,0));
     }
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void PrezzoNelCostruttoreNonNullo()
 	{
-		new Articolo("A",null);
+		new Articolo("A",null,LocalTime.of(12,0));
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void NomeArticoloNelCostruttoreNonNullo()
 	{
-		new Articolo(null,10);
+		new Articolo(null,10,LocalTime.of(12,0));
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void getNome()
 	{
-		new Articolo("B",10);
+		new Articolo("B",10,LocalTime.of(12,0));
 	}
 	
 	@Test
@@ -48,6 +50,24 @@ public class ArticoloTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void prezzoMaggioreDiZero()
 	{
-		new Articolo("A",-10);
+		new Articolo("A",-10,LocalTime.of(12,0));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void orarioNonNullo()
+	{
+		new Articolo("A",10,null);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void orarioOreNonValide()
+	{
+		new Articolo("A",10,LocalTime.of(24,0));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void orarioMinutiNonValidi()
+	{
+		new Articolo("A",10,LocalTime.of(12,60));
 	}
 }
