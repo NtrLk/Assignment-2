@@ -5,7 +5,7 @@
 
 package it.unipd.mtss;
 
-import java.util.HashMap;
+
 import java.util.List;
 
 public class MEINN implements MEIN {
@@ -13,7 +13,7 @@ public class MEINN implements MEIN {
 	
 	@Override
 	public double getOrderPrice(List<Articolo> itemsOrdered, Cliente user) throws BillException {
-		
+		double importo = 0.0;
 		if(itemsOrdered != null)
 		{
 			int length = itemsOrdered.size();
@@ -23,7 +23,7 @@ public class MEINN implements MEIN {
 				throw new  BillException("Non è possibile ordinare più di 30 articoli.");
 			}				
 			else {
-				double importo = 0.0;
+				
 				
 				int numeroProcessori = 0;
 				int numeroMouse = 0;
@@ -103,7 +103,7 @@ public class MEINN implements MEIN {
 		}
 		else
 		{
-			throw new BillException("Lista vuota");
+			throw new BillException("Lista non inizializzata");
 		}
 		
 		return importo;
