@@ -1,7 +1,3 @@
-/*////////////////////////////////////////////////////////////////////
-// [Raul] [Seganfreddo] [1226293] 
-// [Saad] [Mounib] [2052815] 
-////////////////////////////////////////////////////////////////////*/
 package it.unipd.mtss;
 
 import static org.junit.Assert.assertEquals;
@@ -18,7 +14,7 @@ public class ArticoloTest {
     @Before
     public void setUp()
     {
-    	articolo = new Articolo("Tastiere",20);
+    	articolo = new Articolo("Tastiere",20.0);
     }
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -30,24 +26,25 @@ public class ArticoloTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void NomeArticoloNelCostruttoreNonNullo()
 	{
-		new Articolo(null,10);
+		new Articolo(null,10.0);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void getNome()
 	{
-		new Articolo("B",10);
+		new Articolo("B",10.0);
 	}
 	
 	@Test
 	public void getPrezzo()
 	{
-		assertEquals(articolo.getPrezzo(),20);
+		Double x = 20.0;
+		assertEquals(articolo.getPrezzo(),x);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void prezzoMaggioreDiZero()
 	{
-		new Articolo("A",-10);
+		new Articolo("A",-10.0);
 	}
 }

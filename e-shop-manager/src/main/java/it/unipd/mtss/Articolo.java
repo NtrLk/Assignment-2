@@ -8,11 +8,11 @@ package it.unipd.mtss;
 
 public class Articolo implements EItem{
 	String nome;
-	Integer prezzo;
+	Double prezzo;
 	
 	enum itemType {Processore,SchedeMadri, Mouse, Tastiere};
 	
-	public Articolo(String nome, Integer prezzo) {
+	public Articolo(String nome, Double prezzo) {
 		if(nome == null) {
 			throw new IllegalArgumentException("Il nome non può essere nullo");
 		}
@@ -37,7 +37,7 @@ public class Articolo implements EItem{
 		}
 		this.prezzo = prezzo;
 	}
-	public int getPrezzo() {
+	public Double getPrezzo() {
 		return this.prezzo;
 	}
 	
