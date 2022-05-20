@@ -3,7 +3,6 @@
 // [Saad] [Mounib] [2052815] 
 ////////////////////////////////////////////////////////////////////
 
-
 package it.unipd.mtss;
 
 public class Articolo implements EItem{

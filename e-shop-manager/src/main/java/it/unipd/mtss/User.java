@@ -2,6 +2,7 @@
 // [Raul] [Seganfreddo] [1226293] 
 // [Saad] [Mounib] [2052815] 
 ////////////////////////////////////////////////////////////////////
+
 package it.unipd.mtss;
 
 public interface User {

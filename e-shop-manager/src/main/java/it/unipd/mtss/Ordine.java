@@ -12,18 +12,26 @@ import java.time.LocalTime;
 
 public class Ordine {
 	private List<Articolo> ArticoliOrdinati;
-	LocalTime ora;
+	private Integer ora;
+	private Integer minuti;
 
-	public Ordine(LocalTime ora) {
+	public Ordine(Integer ora, Integer minuti) {
 		new ArrayList<Articolo>();
-		// controllo che l'ora non sia nulla e che sia un ora valida
-		if (ora == null) {
-			throw new IllegalArgumentException("ora non può essere nulla");
+		// controllo che nel costruttore l'ora sia valida
+		if (ora < 0 || ora > 23) {
+			throw new IllegalArgumentException("ora non valida");
 		}
-		if (ora.getHour() < 0 || ora.getHour() > 23 || ora.getMinute() < 0 || ora.getMinute() > 59) {
-			throw new DateTimeException("ora non valida");
+		else {
+			this.ora = ora;
 		}
-		this.ora = ora;
+
+		// controllo che nel costruttore i minuti siano validi
+		if (minuti < 0 || minuti > 59) {
+			throw new IllegalArgumentException("minuti non validi");
+		}
+		else {
+			this.minuti = minuti;
+		}
 	}
 	
 	public void addOrdine(String nome,Double prezzo) {
@@ -42,8 +50,8 @@ public class Ordine {
 	public String getOrario() {
 		int ore;
 		int minuti;
-		ore = ora.getHour();
-		minuti = ora.getMinute();
+		ore = this.ora;
+		minuti = this.minuti;
 		String oraString = Integer.toString(ore) + "-" + Integer.toString(minuti);
 		return oraString;
 	}

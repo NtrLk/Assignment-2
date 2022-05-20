@@ -9,33 +9,27 @@ import java.time.LocalTime;
 
 public class OrdineTest {
 
+	// controllo che nel costruttore l'ora sia < 24
 	@Test(expected = IllegalArgumentException.class)
-	public void oraNulla() {
-		new Ordine(null);
+	public void testOrdineOraMinore() {
+		new Ordine(24, 0);
 	}
 
-	@Test(expected = DateTimeException.class)
-	public void oraNonValida() {
-		new Ordine(LocalTime.of(24, 0));
-	}
-
-	@Test(expected = DateTimeException.class)
-	public void minutiNonValidi() {
-		new Ordine(LocalTime.of(0, 60));
-	}
-
+	// controllo che nel costruttore l'ora sia > -1
 	@Test(expected = IllegalArgumentException.class)
-	public void nomeNullo() {
-		new Ordine(LocalTime.of(0, 0)).addOrdine(null, 0.0);
+	public void testOrdineOraMaggiore() {
+		new Ordine(-1, 0);
 	}
 
+	// controllo che nel costruttore i minuti siano < 60
 	@Test(expected = IllegalArgumentException.class)
-	public void prezzoNullo() {
-		new Ordine(LocalTime.of(0, 0)).addOrdine("", null);
+	public void testOrdineMinutiMinore() {
+		new Ordine(0, 60);
 	}
 
+	// controllo che nel costruttore i minuti siano > -1
 	@Test(expected = IllegalArgumentException.class)
-	public void prezzoNegativo() {
-		new Ordine(LocalTime.of(0, 0)).addOrdine("", -1.0);
+	public void testOrdineMinutiMaggiore() {
+		new Ordine(0, -1);
 	}
 }
