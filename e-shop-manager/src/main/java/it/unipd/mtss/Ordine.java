@@ -18,6 +18,9 @@ public class Ordine {
 	}
 	
 	public void addOrdine(String nome,Double prezzo) {
+		if (nome == null || prezzo == null || prezzo < 0) {
+			throw new IllegalArgumentException("nome o prezzo non validi");
+		}
 		ArticoliOrdinati.add(new Articolo(nome,prezzo));
 	}
 
