@@ -40,7 +40,7 @@ public class Articolo implements EItem{
 		}
 		this.prezzo = prezzo;
 
-		if(orario == null | orario.getHour() < 0 || orario.getHour() > 23 || orario.getMinute() < 0 || orario.getMinute() > 59) {
+		if(orario == null || orario.getHour() < 0 || orario.getHour() > 23 || orario.getMinute() < 0 || orario.getMinute() > 59) {
 			throw new IllegalArgumentException("Orario non valido");
 		}
 	}
