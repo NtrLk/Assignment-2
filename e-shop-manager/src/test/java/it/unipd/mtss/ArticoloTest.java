@@ -5,59 +5,49 @@
 package it.unipd.mtss;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
 
+
+
 public class ArticoloTest {
 
-	Articolo articolo;
-	Articolo articoloDue;
+	private Articolo articolo;
+
     @Before
     public void setUp()
     {
-    	articolo = new Articolo(" ",0);
-    	articoloDue = new Articolo("A",100);
+    	articolo = new Articolo("Tastiere",20);
     }
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void PrezzoNelCostruttoreNonNullo()
+	{
+		new Articolo("A",null);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void NomeArticoloNelCostruttoreNonNullo()
+	{
+		new Articolo(null,10);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void getNome()
+	{
+		new Articolo("B",10);
+	}
 	
 	@Test
 	public void getPrezzo()
 	{
-		assertEquals(100,articolo.getPrezzo());
+		assertEquals(articolo.getPrezzo(),20);
 	}
 	
-	@Test
-	public void getNome()
-	{
-		
-
-		assertEquals("A",articolo.getNome());
-	}
-	
-	@Test
-	public void notNullNome()
-	{
-		
-			
-		assertNotNull(articolo.getNome());
-	}
-	
-	@Test
-	public void notNullPrezzo()
-	{
-		
-			
-		assertNotNull(articolo.getPrezzo());
-	}
-	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void prezzoMaggioreDiZero()
 	{
-		Articolo articolo = new Articolo(" ",-5);
-			
-		
+		new Articolo("A",-10);
 	}
-	
-	
 }

@@ -32,7 +32,7 @@
 						</configuration>
 						<executions>
 							<execution>
-								<phase>validate</phase> <!-- NELLA PRIMA FASE Xp-->
+								<phase>validate</phase> 
 								<goals>
 									<goal>checkstyle</goal>
 								</goals>
