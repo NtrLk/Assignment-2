@@ -7,6 +7,9 @@ package it.unipd.mtss;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import it.unipd.mtss.Articolo.itemType;
+
 import java.time.DateTimeException;
 import java.time.LocalTime;
 
@@ -16,7 +19,7 @@ public class Ordine {
 	private Integer minuti;
 
 	public Ordine(Integer ora, Integer minuti) {
-		new ArrayList<Articolo>();
+		this.ArticoliOrdinati = new ArrayList<Articolo>();
 		// controllo che nel costruttore l'ora sia valida
 		if (ora < 0 || ora > 23) {
 			throw new IllegalArgumentException("ora non valida");
@@ -34,7 +37,7 @@ public class Ordine {
 		}
 	}
 	
-	public void addOrdine(String nome,Double prezzo) {
+	public void addArticolo(String nome,Double prezzo) {
 		if (nome == null || prezzo == null || prezzo < 0) {
 			throw new IllegalArgumentException("nome o prezzo non validi");
 		}
@@ -48,11 +51,6 @@ public class Ordine {
 	}
 
 	public String getOrario() {
-		int ore;
-		int minuti;
-		ore = this.ora;
-		minuti = this.minuti;
-		String oraString = Integer.toString(ore) + "-" + Integer.toString(minuti);
-		return oraString;
+		return ora + ":" + minuti;
 	}
 }

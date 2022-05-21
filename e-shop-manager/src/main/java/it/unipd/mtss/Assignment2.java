@@ -8,6 +8,8 @@ package it.unipd.mtss;
 import java.time.LocalTime;
 import java.util.HashMap;
 
+import it.unipd.mtss.Articolo.itemType;
+
 public class Assignment2 {
 public static void main(String [] args) {
 		double valoreDaPagare = 0.0;
@@ -26,37 +28,37 @@ public static void main(String [] args) {
 		Cliente nove = new Cliente(20,"AV", "rterc","Padova");
 		Cliente dieci = new Cliente(20,"AT", "rterc","Padova");
 		
-		Ordine o1 = new Ordine(LocalTime.of(12, 30));
-		o1.addOrdine("Processori", 10.0);
-		o1.addOrdine("Processori", 10.0);
-		o1.addOrdine("Processori", 10.0);
-		o1.addOrdine("Processori", 10.0);
-		o1.addOrdine("Processori", 10.0);
-		o1.addOrdine("Processori", 10.0);
+		Ordine o1 = new Ordine(12,30);
+		o1.addArticolo("Processore", 10.0);
+		o1.addArticolo("Processore", 10.0);
+		o1.addArticolo("Processore", 10.0);
+		o1.addArticolo("Processore", 10.0);
+		o1.addArticolo("Processore", 10.0);
+		o1.addArticolo("Processore", 10.0);
 		
-		o1.addOrdine("Tastiere", 1000.0);
-		o1.addOrdine("Tastiere", 10.0);
-		o1.addOrdine("Tastiere", 10.0);
-		o1.addOrdine("Tastiere", 10.0);
-		o1.addOrdine("Tastiere", 10.0);
-		o1.addOrdine("Tastiere", 10.0);
-		o1.addOrdine("Tastiere", 10.0);
-		o1.addOrdine("Tastiere", 10.0);
-		o1.addOrdine("Tastiere", 10.0);
-		o1.addOrdine("Tastiere", 10.0);
-		o1.addOrdine("Tastiere", 10.0);
+		o1.addArticolo("Tastiere", 1000.0);
+		o1.addArticolo("Tastiere", 10.0);
+		o1.addArticolo("Tastiere", 10.0);
+		o1.addArticolo("Tastiere", 10.0);
+		o1.addArticolo("Tastiere", 10.0);
+		o1.addArticolo("Tastiere", 10.0);
+		o1.addArticolo("Tastiere", 10.0);
+		o1.addArticolo("Tastiere", 10.0);
+		o1.addArticolo("Tastiere", 10.0);
+		o1.addArticolo("Tastiere", 10.0);
+		o1.addArticolo("Tastiere", 10.0);
 		
-		o1.addOrdine("Mouse", 5.0);
-		o1.addOrdine("Mouse", 10.0);
-		o1.addOrdine("Mouse", 10.0);
-		o1.addOrdine("Mouse", 10.0);
-		o1.addOrdine("Mouse", 10.0);
-		o1.addOrdine("Mouse", 10.0);
-		o1.addOrdine("Mouse", 10.0);
-		o1.addOrdine("Mouse", 10.0);
-		o1.addOrdine("Mouse", 10.0);
-		o1.addOrdine("Mouse", 10.0);
-		o1.addOrdine("Mouse", 10.0);
+		o1.addArticolo("Mouse", 10.0);
+		o1.addArticolo("Mouse", 5.0);
+		o1.addArticolo("Mouse", 10.0);
+		o1.addArticolo("Mouse", 10.0);
+		o1.addArticolo("Mouse", 10.0);
+		o1.addArticolo("Mouse", 10.0);
+		o1.addArticolo("Mouse", 10.0);
+		o1.addArticolo("Mouse", 10.0);
+		o1.addArticolo("Mouse", 10.0);
+		o1.addArticolo("Mouse", 10.0);
+		o1.addArticolo("Mouse", 10.0);
 	
 		Ordini.put(uno, o1);
 		

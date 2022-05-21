@@ -32,4 +32,19 @@ public class ClienteTest {
 	public void costruttoreAgeMin() {
 		assertTrue(Mario.getAge() > 9);
 	}
+
+	@Test
+	public void getNomeNotNull() {
+		assertTrue(Mario.getNome() != null);
+	}
+
+	@Test
+	public void getCognomeNotNull() {
+		assertTrue(Mario.getCognome() != null);
+	}
+
+	@Test
+	public void getLuogoNascitaNotNull() {
+		assertTrue(Mario.getLuogoNascita() != null);
+	}
 }

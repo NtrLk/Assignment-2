@@ -8,6 +8,8 @@ package it.unipd.mtss;
 
 import java.util.List;
 
+import it.unipd.mtss.Articolo.itemType;
+
 public class MEINN implements MEIN {
 	public MEINN() {}
 	
@@ -37,16 +39,16 @@ public class MEINN implements MEIN {
 				for(int i = 0; i < itemsOrdered.size(); i++) {
 					aux = itemsOrdered.get(i);
 					
-					if(aux.getNome() == "Processori") {
+					if(aux.getNome() == itemType.Processore) {
 						numeroProcessori++;
 						menoCaroProcessori = aux.getPrezzo();
 					}
 					
-					if(aux.getNome() == "Mouse") {
+					if(aux.getNome() == itemType.Mouse) {
 						numeroMouse++;
 						menoCaroMouse = aux.getPrezzo();
 					}
-					if(aux.getNome() == "Tastiere") {
+					if(aux.getNome() == itemType.Tastiere) {
 						numeroTastiere++;
 						menoCaroTastiere = aux.getPrezzo();
 					}
@@ -55,21 +57,21 @@ public class MEINN implements MEIN {
 				
 				for(int j = 0; j < itemsOrdered.size(); j++) {
 					aux = itemsOrdered.get(j);
-					if(aux.getNome() == "Mouse") {
+					if(aux.getNome() == itemType.Mouse) {
 						if(aux.getPrezzo() < menoCaroMouse)
 						{
 							menoCaroMouse = aux.getPrezzo();
 						}
 					}
 					
-					if(aux.getNome() == "Tastiere") {
+					if(aux.getNome() == itemType.Tastiere) {
 						if(aux.getPrezzo() < menoCaroTastiere)
 						{
 							menoCaroTastiere = aux.getPrezzo();
 						}
 					}
 
-					if(aux.getNome() == "Processori") {
+					if(aux.getNome() == itemType.Processore) {
 						if(aux.getPrezzo() < menoCaroProcessori)
 						{
 							menoCaroProcessori = aux.getPrezzo();

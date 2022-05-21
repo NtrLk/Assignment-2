@@ -6,10 +6,9 @@
 package it.unipd.mtss;
 
 public class Articolo implements EItem{
-	String nome;
-	Double prezzo;
-	
 	enum itemType {Processore,SchedeMadri, Mouse, Tastiere};
+	itemType nome;
+	Double prezzo;
 	
 	public Articolo(String nome, Double prezzo) {
 		if(nome == null) {
@@ -27,20 +26,30 @@ public class Articolo implements EItem{
 			throw new IllegalArgumentException("Il prezzo deve essere maggiore di zero");
 		}
 		
-		if(nome == "Processore" || nome == "SchedeMadri" || nome == "Mouse" || nome == "Tastiere") {
-			this.nome = nome;
-		}
-		else
-		{
+		switch (nome) {
+		case "Processore":
+			this.nome = itemType.Processore;
+			break;
+		case "SchedeMadri":
+			this.nome = itemType.SchedeMadri;
+			break;
+		case "Mouse":
+			this.nome = itemType.Mouse;
+			break;
+		case "Tastiere":
+			this.nome = itemType.Tastiere;
+			break;
+		default:
 			throw new IllegalArgumentException("Articolo non riconosciuto");
 		}
+
 		this.prezzo = prezzo;
 	}
 	public Double getPrezzo() {
 		return this.prezzo;
 	}
 	
-	public String getNome() {
+	public itemType getNome() {
 		return this.nome;
 	}
 }

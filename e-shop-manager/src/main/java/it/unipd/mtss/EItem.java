@@ -5,7 +5,9 @@
 
 package it.unipd.mtss;
 
+import it.unipd.mtss.Articolo.itemType;
+
 public interface EItem {
 	Double getPrezzo();
-	String getNome();	
+	itemType getNome();	
 }

@@ -2,12 +2,18 @@ package it.unipd.mtss;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
-import java.time.DateTimeException;
-import java.time.LocalTime;
+import it.unipd.mtss.Articolo.itemType;
+
+import java.util.List;
+import java.util.ArrayList;
 
 public class OrdineTest {
+
+	List<Articolo> ArticoliOrdinati;
+	List<Articolo> Aux;
 
 	// controllo che nel costruttore l'ora sia < 24
 	@Test(expected = IllegalArgumentException.class)
@@ -31,5 +37,51 @@ public class OrdineTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void testOrdineMinutiMaggiore() {
 		new Ordine(0, -1);
+	}
+
+	// controllo che il nome dell'ordine non sia null
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticolocleaNomeNotNull() {
+		new Ordine(0, 0).addArticolo(null, 0.0);
+	}
+
+	// controllo che il prezzo dell'ordine non sia null
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticoloPrezzoNotNull() {
+		new Ordine(0, 0).addArticolo("Processore", null);
+	}
+
+	// controllo che il prezzo dell'ordine non sia <= 0
+	@Test(expected = IllegalArgumentException.class)
+	public void testAddArticoloPrezzoMinoreDiZero() {
+		new Ordine(0, 0).addArticolo("Processore", -1.0);
+	}
+
+	// inizializzo la lista di articoli aggiungendo un elemento, utile
+	// per i test successivi
+	@Before
+	public void setUpListaArticolo() throws Exception {
+		ArticoliOrdinati = new ArrayList<Articolo>();
+		Aux = new ArrayList<Articolo>();
+		ArticoliOrdinati.add(new Articolo("Processore",10.0));
+		Aux.add(new Articolo("Processore", 10.0));
+	}
+
+	// test che il return di getLista() funzioni correttamente
+	@Test
+	public void testReturnGetLista() {
+		Ordine o1 = new Ordine(0, 0);
+		Ordine o2 = new Ordine(0, 0);
+		o1.addArticolo("Processore", 10.0);
+		o2.addArticolo("Processore", 10.0);
+		assertEquals(o1.getLista().get(0).getNome(), o2.getLista().get(0).getNome());
+		assertEquals(o1.getLista().get(0).getPrezzo(), o2.getLista().get(0).getPrezzo());
+	}
+
+	// test che il return di getOrario() ritorni la formattazione corretta
+	@Test
+	public void testReturnGetOrario() {
+		Ordine o1 = new Ordine(0, 0);
+		assertEquals("0:0", o1.getOrario());
 	}
 }
