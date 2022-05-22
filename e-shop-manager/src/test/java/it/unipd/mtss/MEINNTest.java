@@ -20,7 +20,7 @@ public class MEINNTest {
     @Before
     public void setUp() throws Exception {
         ArticoliOrdinati = new ArrayList<Articolo>();
-        ArticoliOrdinati.add(new Articolo("Processore", 1.0));
+        ArticoliOrdinati.add(new Articolo("Processori", 1.0));
         ArticoliOrdinati.add(new Articolo("Mouse", 1.0));
         ArticoliOrdinati.add(new Articolo("Tastiere", 1.0));
         Cliente cliente = new Cliente(10, "Mario", "Rossi", "Milano");
@@ -51,7 +51,7 @@ public class MEINNTest {
     @Test
     public void testItemsOrderedSizeMaggioreDiTrenta() {
         for (int i = 0; i < 11; i++) {
-            ArticoliOrdinati.add(new Articolo("Processore", 2.0));
+            ArticoliOrdinati.add(new Articolo("Processori", 2.0));
             ArticoliOrdinati.add(new Articolo("Mouse", 2.0));
             ArticoliOrdinati.add(new Articolo("Tastiere", 2.0));
         }
@@ -67,7 +67,7 @@ public class MEINNTest {
     @Before
     public void setUp2() throws Exception {
         ArticoliOrdinati2 = new ArrayList<Articolo>();
-        ArticoliOrdinati2.add(new Articolo("Processore", 10.0));
+        ArticoliOrdinati2.add(new Articolo("Processori", 10.0));
         ArticoliOrdinati2.add(new Articolo("Mouse", 10.0));
         ArticoliOrdinati2.add(new Articolo("Tastiere", 10.0));
     }
@@ -76,9 +76,9 @@ public class MEINNTest {
     @Test
     public void testItemsOrderedPiuDi5Processori() {
         for (int i = 0; i < 5; i++) {
-            ArticoliOrdinati2.add(new Articolo("Processore", 10.0));
+            ArticoliOrdinati2.add(new Articolo("Processori", 10.0));
         }
-        ArticoliOrdinati2.add(new Articolo("Processore", 5.0));
+        ArticoliOrdinati2.add(new Articolo("Processori", 5.0));
         MEINN meinn = new MEINN();
         try {
             // visto il come ho costruito la lista di articoli, il valore che mi aspetto,

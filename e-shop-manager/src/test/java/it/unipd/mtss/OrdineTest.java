@@ -63,8 +63,8 @@ public class OrdineTest {
 	public void setUpListaArticolo() throws Exception {
 		ArticoliOrdinati = new ArrayList<Articolo>();
 		Aux = new ArrayList<Articolo>();
-		ArticoliOrdinati.add(new Articolo("Processore",10.0));
-		Aux.add(new Articolo("Processore", 10.0));
+		ArticoliOrdinati.add(new Articolo("Processori",10.0));
+		Aux.add(new Articolo("Processori", 10.0));
 	}
 
 	// test che il return di getLista() funzioni correttamente
@@ -72,8 +72,8 @@ public class OrdineTest {
 	public void testReturnGetLista() {
 		Ordine o1 = new Ordine(0, 0);
 		Ordine o2 = new Ordine(0, 0);
-		o1.addArticolo("Processore", 10.0);
-		o2.addArticolo("Processore", 10.0);
+		o1.addArticolo("Processori", 10.0);
+		o2.addArticolo("Processori", 10.0);
 		assertEquals(o1.getLista().get(0).getNome(), o2.getLista().get(0).getNome());
 		assertEquals(o1.getLista().get(0).getPrezzo(), o2.getLista().get(0).getPrezzo());
 	}
@@ -83,5 +83,21 @@ public class OrdineTest {
 	public void testReturnGetOrario() {
 		Ordine o1 = new Ordine(0, 0);
 		assertEquals("0:0", o1.getOrario());
+	}
+
+	// test se getImporto() funziona correttamente
+	@Test
+	public void testGetImporto() {
+		Ordine o1 = new Ordine(0, 0);
+		o1.setImporto(10.0);
+		assertEquals(10.0, o1.getImporto(), 0.0);
+	}
+
+	// test se setImporto() passi un importo uguale a -0.0
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetImportoMinoreDiZero() {
+		Ordine o1 = new Ordine(0, 0);
+		double importo = -0.0;
+		o1.setImporto(importo);
 	}
 }

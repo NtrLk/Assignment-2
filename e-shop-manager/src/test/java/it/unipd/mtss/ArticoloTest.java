@@ -23,7 +23,7 @@ public class ArticoloTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void testPrezzoNelCostruttoreNonNullo()
 	{
-		new Articolo("Processore",null);
+		new Articolo("Processori",null);
 	}
 
 	// controllo che il costruttore non accetti un nome nullo
@@ -44,7 +44,7 @@ public class ArticoloTest {
 	@Test
 	public void testSwitchProcessore()
 	{
-		assertEquals("Processore", new Articolo("Processore",x).getNome().toString());
+		assertEquals("Processori", new Articolo("Processori",x).getNome().toString());
 	}
 
 	@Test

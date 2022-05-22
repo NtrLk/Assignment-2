@@ -65,7 +65,7 @@ public class Ordine {
 		}
 		else
 		{
-			// imp
+			throw new IllegalArgumentException("importo non valido");
 		}
 	}
 }
