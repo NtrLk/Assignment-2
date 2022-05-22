@@ -65,7 +65,7 @@ public static void main(String [] args) {
 		aux = clienti.get(10);
 		creazioneOrdine(aux,17,30);
 		aux = clienti.get(11);
-		creazioneOrdine(aux,12,10);
+		creazioneOrdine(aux,20,10);
 		aux = clienti.get(12);
 		creazioneOrdine(aux,11,21);
 		aux = clienti.get(13);
@@ -97,7 +97,7 @@ public static void main(String [] args) {
 		LocalTime cd;
 		int counter = 0;
 		
-		while(clientela.size() > 0 && counter != 10) { 
+		while(counter != 10) { 
 			random = ThreadLocalRandom.current().nextInt(0, (max));	
 			Cliente auxx = clientela.get(random);
 			
@@ -151,5 +151,4 @@ public static void creazioneOrdine(Cliente cliente, Integer ora, Integer minuti)
 	
 	
 }
-
 }
