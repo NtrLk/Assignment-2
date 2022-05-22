@@ -22,7 +22,7 @@ public class MEINN implements MEIN {
 			
 			if(length > 30)
 			{
-				throw new  BillException("Non è possibile ordinare più di 30 articoli.");
+				throw new  BillException("Non e' possibile ordinare piu' di 30 articoli.");
 			}				
 			else {
 				
@@ -94,7 +94,7 @@ public class MEINN implements MEIN {
 				
 				if(importo > 1000)
 				{
-					importo = (importo * 10) / 100;
+					importo -= (importo * 10) / 100;
 				}
 				
 				if(importo < 10) {

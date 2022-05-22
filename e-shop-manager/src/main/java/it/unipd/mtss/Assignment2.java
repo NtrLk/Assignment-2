@@ -70,7 +70,7 @@ public static void main(String [] args) {
 		  valoreDaPagare = val.getOrderPrice(Ordini.get(uno).getLista(),uno);
 		}
 		catch(BillException e) {
-			System.out.println("Erroe");
+			System.out.println("Errore");
 		}
 		
 	}
