@@ -64,7 +64,19 @@ public static void main(String [] args) {
 		
 		MEINN val = new MEINN();
 		
-	
+		// Ordini gratis
+		// TODO Sistemare la variabile "valoreDaPagare" che ha problemi riguardo il final
+		/*
+		Ordini.keySet().forEach(key -> {
+			if (key.getAge() >= 18 || (LocalTime.parse(Ordini.get(key).getOrario()).isAfter(LocalTime.parse("18:59")) && LocalTime.parse(Ordini.get(key).getOrario()).isBefore(LocalTime.parse("18:00")))) {
+				valoreDaPagare += val.getOrderPrice(Ordini.get(key).getLista(), key);
+			}
+			else {
+				valoreDaPagare += 0;
+			}
+		});
+		*/
+		
 		try
 		{
 		  valoreDaPagare = val.getOrderPrice(Ordini.get(uno).getLista(),uno);

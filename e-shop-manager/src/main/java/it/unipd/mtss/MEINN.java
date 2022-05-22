@@ -6,6 +6,7 @@
 package it.unipd.mtss;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.unipd.mtss.Articolo.itemType;
