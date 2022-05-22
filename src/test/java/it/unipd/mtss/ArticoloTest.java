@@ -92,3 +92,5 @@ public class ArticoloTest {
 		new Articolo(null, 0.0).getNome();
 	}
 }
+
+// test
