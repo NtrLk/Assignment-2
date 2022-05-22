@@ -6,6 +6,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import it.unipd.mtss.Articolo.itemType;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -16,6 +18,7 @@ public class MEINNTest {
 
     List<Articolo> ArticoliOrdinati;
     List<Articolo> ArticoliOrdinati2;
+    List<Articolo> ArticoliOrdinati3;
 
     @Before
     public void setUp() throws Exception {
@@ -121,5 +124,26 @@ public class MEINNTest {
         } catch (BillException e) {
             assertEquals("Non e' possibile ordinare piu' di 30 articoli.", e.getMessage());
         }
+    }
+
+    @Before
+    public void setUpGetOrderPrice() throws Exception {
+        ArticoliOrdinati3 = new ArrayList<Articolo>();
+        ArticoliOrdinati3.add(new Articolo("Processori", 10.0));
+        ArticoliOrdinati3.add(new Articolo("Mouse", 10.0));
+        ArticoliOrdinati3.add(new Articolo("Tastiere", 10.0));
+        ArticoliOrdinati3.add(new Articolo("Processori", 5.0));
+        ArticoliOrdinati3.add(new Articolo("Mouse", 5.0));
+        ArticoliOrdinati3.add(new Articolo("Tastiere", 5.0));
+    }
+
+    @Test
+    public void testGetOrderPrice() {
+        Articolo aux = new Articolo("Tastiere", 10.00);
+        double x = 20.00;
+        assertEquals(itemType.Tastiere, aux.getNome());
+        assertTrue(aux.getPrezzo() < x);
+        x = aux.getPrezzo();
+        assertTrue(aux.getPrezzo() == x);
     }
 }
