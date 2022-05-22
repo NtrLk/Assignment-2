@@ -6,84 +6,150 @@
 package it.unipd.mtss;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.concurrent.ThreadLocalRandom;
 
-import it.unipd.mtss.Articolo.itemType;
+
 
 public class Assignment2 {
+	static double valoreDaPagare = 0.0;
+	static MEINN val = new MEINN();
+	static List<Cliente> clienti = new ArrayList<Cliente>();
+	static HashMap<Cliente, Ordine> Ordini = new HashMap<Cliente, Ordine>();
 public static void main(String [] args) {
 		double valoreDaPagare = 0.0;
+		Cliente aux = null;
 		
-		HashMap<Cliente, Ordine> Ordini = new HashMap<Cliente, Ordine>();
+		clienti.add(new Cliente(16,"VV", "rterc","Padova"));
+		clienti.add(new Cliente(15,"XV", "rterc","Padova"));
+		clienti.add(new Cliente(17,"AQ", "rterc","Padova"));
+		clienti.add(new Cliente(16,"QQ", "rterc","Padova"));
+		clienti.add(new Cliente(16,"QTT", "rterc","Padova"));
+		clienti.add(new Cliente(16,"QT", "rterc","Padova"));
+		clienti.add(new Cliente(13,"SQ", "rterc","Padova"));
+		clienti.add(new Cliente(17,"SS", "rterc","Padova"));
+		clienti.add(new Cliente(15,"XX", "rterc","EWAAAa"));
+		clienti.add(new Cliente(11,"XX", "rterc","Padova"));
+		clienti.add(new Cliente(12,"XX", "rterc","Padova"));
+		clienti.add(new Cliente(10,"XX", "rterc","Padova"));
+		clienti.add(new Cliente(10,"XX", "rterc","Padova"));
 		
+		clienti.add(new Cliente(20,"XX", "rterc","DT"));
+		clienti.add(new Cliente(20,"XX", "rterc","DS"));
+		clienti.add(new Cliente(20,"XX", "rterc","DA"));
+		clienti.add(new Cliente(20,"YT", "rterc","DE"));
 		
-		Cliente uno = new Cliente(20,"QQ", "rterc","Padova");
-		Cliente due = new Cliente(20,"XX", "rterc","Padova");
-		Cliente tre = new Cliente(20,"PP", "rterc","Padova");
-		Cliente quattro = new Cliente(20,"SS", "rterc","Padova");
-		Cliente cinque = new Cliente(20,"TT", "rterc","Padova");
-		Cliente sei = new Cliente(20,"BB", "rterc","Padova");
-		Cliente sette = new Cliente(20,"AA", "rterc","Padova");
-		Cliente otto = new Cliente(20,"AS", "rterc","Padova");
-		Cliente nove = new Cliente(20,"AV", "rterc","Padova");
-		Cliente dieci = new Cliente(20,"AT", "rterc","Padova");
+		aux = clienti.get(0);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(1);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(2);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(3);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(4);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(5);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(6);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(7);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(8);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(9);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(10);
+		creazioneOrdine(aux,17,30);
+		aux = clienti.get(11);
+		creazioneOrdine(aux,12,10);
+		aux = clienti.get(12);
+		creazioneOrdine(aux,11,21);
+		aux = clienti.get(13);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(14);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(15);
+		creazioneOrdine(aux,18,45);
+		aux = clienti.get(16);
+		creazioneOrdine(aux,18,45);
 		
-		Ordine o1 = new Ordine(12,30);
-		o1.addArticolo("Processore", 10.0);
-		o1.addArticolo("Processore", 10.0);
-		o1.addArticolo("Processore", 10.0);
-		o1.addArticolo("Processore", 10.0);
-		o1.addArticolo("Processore", 10.0);
-		o1.addArticolo("Processore", 10.0);
+
+		for(Cliente c : clienti) {
+			try
+			{
+			  valoreDaPagare = val.getOrderPrice(Ordini.get(c).getLista(), c);
+			  Ordini.get(c).setImporto(valoreDaPagare);
+			  System.out.println("Il totale per l'ordine di : " + aux.getNome() + " " + aux.getCognome() + " -->  " + valoreDaPagare);
+			}
+			catch(BillException e) {
+				System.out.println(e.getMessage());
+			}
+		}
 		
-		o1.addArticolo("Tastiere", 1000.0);
-		o1.addArticolo("Tastiere", 10.0);
-		o1.addArticolo("Tastiere", 10.0);
-		o1.addArticolo("Tastiere", 10.0);
-		o1.addArticolo("Tastiere", 10.0);
-		o1.addArticolo("Tastiere", 10.0);
-		o1.addArticolo("Tastiere", 10.0);
-		o1.addArticolo("Tastiere", 10.0);
-		o1.addArticolo("Tastiere", 10.0);
-		o1.addArticolo("Tastiere", 10.0);
-		o1.addArticolo("Tastiere", 10.0);
+		List<Cliente> clientela = Ordini.keySet().stream().filter( C -> C.getAge() < 18).collect(Collectors.toList());
+
+		int max = clientela.size();
+		int random = 0;
+		LocalTime cd;
+		int counter = 0;
 		
-		o1.addArticolo("Mouse", 10.0);
-		o1.addArticolo("Mouse", 5.0);
-		o1.addArticolo("Mouse", 10.0);
-		o1.addArticolo("Mouse", 10.0);
-		o1.addArticolo("Mouse", 10.0);
-		o1.addArticolo("Mouse", 10.0);
-		o1.addArticolo("Mouse", 10.0);
-		o1.addArticolo("Mouse", 10.0);
-		o1.addArticolo("Mouse", 10.0);
-		o1.addArticolo("Mouse", 10.0);
-		o1.addArticolo("Mouse", 10.0);
+		while(clientela.size() > 0 && counter != 10) { 
+			random = ThreadLocalRandom.current().nextInt(0, (max));	
+			Cliente auxx = clientela.get(random);
+			
+			cd = LocalTime.parse(Ordini.get(auxx).getOrario());
+			
+			if(cd.isAfter(LocalTime.parse("17:59")) && cd.isBefore(LocalTime.parse("20:00"))) {
+				Ordini.get(auxx).setImporto(0.0);
+				max--;
+				counter++;
+				clientela.remove(random);
+				System.out.println("L'acquisto del cliente --> " +"Nome :"+ auxx.getNome() + " Cognome : " + auxx.getCognome() + " viene offertto dal negozio.");
+			}
+		}
+		
+}
+
+public static void creazioneOrdine(Cliente cliente, Integer ora, Integer minuti) {
+
+	Ordine o1 = new Ordine(ora, minuti);
+	o1.addArticolo("Processori", 10.0);
+	o1.addArticolo("Processori", 10.0);
+	o1.addArticolo("Processori", 10.0);
+	o1.addArticolo("Processori", 10.0);
+	o1.addArticolo("Processori", 10.0);
+	o1.addArticolo("Processori", 10.0);
 	
-		Ordini.put(uno, o1);
-		
-		MEINN val = new MEINN();
-		
-		// Ordini gratis
-		// TODO Sistemare la variabile "valoreDaPagare" che ha problemi riguardo il final
-		/*
-		Ordini.keySet().forEach(key -> {
-			if (key.getAge() >= 18 || (LocalTime.parse(Ordini.get(key).getOrario()).isAfter(LocalTime.parse("18:59")) && LocalTime.parse(Ordini.get(key).getOrario()).isBefore(LocalTime.parse("18:00")))) {
-				valoreDaPagare += val.getOrderPrice(Ordini.get(key).getLista(), key);
-			}
-			else {
-				valoreDaPagare += 0;
-			}
-		});
-		*/
-		
-		try
-		{
-		  valoreDaPagare = val.getOrderPrice(Ordini.get(uno).getLista(),uno);
-		}
-		catch(BillException e) {
-			System.out.println("Errore");
-		}
-		
-	}
+	o1.addArticolo("Tastiere", 1000.0);
+	o1.addArticolo("Tastiere", 10.0);
+	o1.addArticolo("Tastiere", 10.0);
+	o1.addArticolo("Tastiere", 10.0);
+	o1.addArticolo("Tastiere", 10.0);
+	o1.addArticolo("Tastiere", 10.0);
+	o1.addArticolo("Tastiere", 10.0);
+	o1.addArticolo("Tastiere", 10.0);
+	o1.addArticolo("Tastiere", 10.0);
+	o1.addArticolo("Tastiere", 10.0);
+	o1.addArticolo("Tastiere", 10.0);
+	
+	o1.addArticolo("Mouse", 5.0);
+	o1.addArticolo("Mouse", 10.0);
+	o1.addArticolo("Mouse", 10.0);
+	o1.addArticolo("Mouse", 10.0);
+	o1.addArticolo("Mouse", 10.0);
+	o1.addArticolo("Mouse", 10.0);
+	o1.addArticolo("Mouse", 10.0);
+	o1.addArticolo("Mouse", 10.0);
+	o1.addArticolo("Mouse", 10.0);
+	o1.addArticolo("Mouse", 10.0);
+	o1.addArticolo("Mouse", 10.0);
+	Ordini.put(cliente, o1);
+	
+	
+}
+
 }

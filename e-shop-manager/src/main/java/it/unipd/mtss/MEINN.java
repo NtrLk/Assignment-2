@@ -40,7 +40,7 @@ public class MEINN implements MEIN {
 				for(int i = 0; i < itemsOrdered.size(); i++) {
 					aux = itemsOrdered.get(i);
 					
-					if(aux.getNome() == itemType.Processore) {
+					if(aux.getNome() == itemType.Processori) {
 						numeroProcessori++;
 						menoCaroProcessori = aux.getPrezzo();
 					}
@@ -72,7 +72,7 @@ public class MEINN implements MEIN {
 						}
 					}
 
-					if(aux.getNome() == itemType.Processore) {
+					if(aux.getNome() == itemType.Processori) {
 						if(aux.getPrezzo() < menoCaroProcessori)
 						{
 							menoCaroProcessori = aux.getPrezzo();

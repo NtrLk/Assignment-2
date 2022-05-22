@@ -6,7 +6,7 @@
 package it.unipd.mtss;
 
 public class Articolo implements EItem{
-	enum itemType {Processore,SchedeMadri, Mouse, Tastiere};
+	enum itemType {Processori,SchedeMadri, Mouse, Tastiere};
 	itemType nome;
 	Double prezzo;
 	
@@ -27,8 +27,8 @@ public class Articolo implements EItem{
 		}
 		
 		switch (nome) {
-		case "Processore":
-			this.nome = itemType.Processore;
+		case "Processori":
+			this.nome = itemType.Processori;
 			break;
 		case "SchedeMadri":
 			this.nome = itemType.SchedeMadri;

@@ -14,6 +14,7 @@ import java.time.DateTimeException;
 import java.time.LocalTime;
 
 public class Ordine {
+	private double importo = 0.0;
 	private List<Articolo> ArticoliOrdinati;
 	private Integer ora;
 	private Integer minuti;
@@ -51,6 +52,20 @@ public class Ordine {
 	}
 
 	public String getOrario() {
-		return ora + ":" + minuti;
+		return this.ora + ":" + this.minuti;
+	}
+	
+	public double getImporto() {
+		return this.importo;
+	}
+	
+	public void setImporto(double importo) {
+		if(importo == 0.0 || importo > 0.0 && importo != -0.0) {
+			this.importo = importo;
+		}
+		else
+		{
+			// imp
+		}
 	}
 }
