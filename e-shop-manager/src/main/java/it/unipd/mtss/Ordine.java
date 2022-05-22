@@ -60,7 +60,7 @@ public class Ordine {
 	}
 	
 	public void setImporto(double importo) {
-		if(importo == 0.0 || importo > 0.0 && importo != -0.0) {
+		if(importo >= 0.00) {
 			this.importo = importo;
 		}
 		else

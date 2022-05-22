@@ -93,11 +93,10 @@ public class OrdineTest {
 		assertEquals(10.0, o1.getImporto(), 0.0);
 	}
 
-	// test se setImporto() passi un importo uguale a -0.0
+	// test se setImporto() ha un importo non valido
 	@Test(expected = IllegalArgumentException.class)
-	public void testSetImportoMinoreDiZero() {
+	public void testSetImporto() {
 		Ordine o1 = new Ordine(0, 0);
-		double importo = -0.0;
-		o1.setImporto(importo);
+		o1.setImporto(-1.0);
 	}
 }
