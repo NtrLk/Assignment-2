@@ -1,4 +1,4 @@
-package it.unipd.mtss;
+package it.unipd.mtss.model;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,13 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import it.unipd.mtss.model.Articolo;
+import it.unipd.mtss.model.Ordine;
+import it.unipd.mtss.model.Cliente;
+import it.unipd.mtss.business.BillImpl;
+import it.unipd.mtss.business.exeption.BillException;
+
 
 public class Assignment2Test {
 
@@ -23,7 +30,7 @@ public class Assignment2Test {
 	public void testLancioBillException() throws BillException {
 		List<Articolo> itemsOrdered = null;
 		Cliente user = new Cliente(16,"QQ", "rterc","Padova");
-    	MEINN prova = new MEINN();
+    	BillImpl prova = new BillImpl();
     	prova.getOrderPrice(itemsOrdered,user);
 	}
 
@@ -31,7 +38,7 @@ public class Assignment2Test {
 	public void testLancioBillException2() throws BillException {
 		List<Articolo> itemsOrdered = new ArrayList<Articolo>();
 		Cliente user = new Cliente(16,"QQ", "rterc","Padova");
-    	MEINN prova = new MEINN();
+    	BillImpl prova = new BillImpl();
     	for(int i = 0; i < 35; i++){
         	itemsOrdered.add(new Articolo("Tastiere", 10.00));
     	}

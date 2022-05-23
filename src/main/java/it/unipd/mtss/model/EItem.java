@@ -3,9 +3,9 @@
 // [Saad] [Mounib] [2052815] 
 ////////////////////////////////////////////////////////////////////
 
-package it.unipd.mtss;
+package it.unipd.mtss.model;
 
-import it.unipd.mtss.Articolo.itemType;
+import it.unipd.mtss.model.Articolo.itemType;
 
 public interface EItem {
 	Double getPrezzo();

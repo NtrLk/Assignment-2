@@ -3,7 +3,7 @@
 // [Saad] [Mounib] [2052815] 
 ////////////////////////////////////////////////////////////////////
 
-package it.unipd.mtss;
+package it.unipd.mtss.model;
 
 public interface User {
 	String getNome();

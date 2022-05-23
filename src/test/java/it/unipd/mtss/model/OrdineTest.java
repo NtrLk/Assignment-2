@@ -1,11 +1,11 @@
-package it.unipd.mtss;
+package it.unipd.mtss.model;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import it.unipd.mtss.Articolo.itemType;
+import it.unipd.mtss.model.Articolo.itemType;
 
 import java.util.List;
 import java.util.ArrayList;

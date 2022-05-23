@@ -3,12 +3,12 @@
 // [Saad] [Mounib] [2052815] 
 ////////////////////////////////////////////////////////////////////
 
-package it.unipd.mtss;
+package it.unipd.mtss.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipd.mtss.Articolo.itemType;
+import it.unipd.mtss.model.Articolo.itemType;
 
 import java.time.DateTimeException;
 import java.time.LocalTime;

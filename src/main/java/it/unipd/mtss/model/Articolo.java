@@ -3,10 +3,10 @@
 // [Saad] [Mounib] [2052815] 
 ////////////////////////////////////////////////////////////////////
 
-package it.unipd.mtss;
+package it.unipd.mtss.model;
 
 public class Articolo implements EItem{
-	enum itemType {Processori,SchedeMadri, Mouse, Tastiere};
+	public enum itemType {Processori,SchedeMadri, Mouse, Tastiere};
 	itemType nome;
 	Double prezzo;
 	

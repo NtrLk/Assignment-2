@@ -1,20 +1,22 @@
-
-package it.unipd.mtss;
+package it.unipd.mtss.business;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import it.unipd.mtss.Articolo.itemType;
-
 import java.util.List;
 import java.util.ArrayList;
+
+import it.unipd.mtss.model.Articolo;
+import it.unipd.mtss.model.Articolo.itemType;
+import it.unipd.mtss.model.Cliente;
+import it.unipd.mtss.business.exeption.BillException;
 
 
 /* star import error */
 
-public class MEINNTest {
+public class BillImplTest {
 
     List<Articolo> ArticoliOrdinati;
     List<Articolo> ArticoliOrdinati2;
@@ -31,7 +33,7 @@ public class MEINNTest {
 
     @Test
     public void testItemsOrderedNotNull() {
-        MEINN meinn = new MEINN();
+        BillImpl meinn = new BillImpl();
         try {
             meinn.getOrderPrice(null, new Cliente(10, "Mario", "Rossi", "Milano"));
         } catch (BillException e) {
@@ -42,7 +44,7 @@ public class MEINNTest {
     // test che la size della lista non superi i 30 articoli
     @Test
     public void testItemsOrderedSizeMinoreDiTrenta() {
-        MEINN meinn = new MEINN();
+        BillImpl meinn = new BillImpl();
         try {
             meinn.getOrderPrice(ArticoliOrdinati, new Cliente(10, "Mario", "Rossi", "Milano"));
         } catch (BillException e) {
@@ -58,7 +60,7 @@ public class MEINNTest {
             ArticoliOrdinati.add(new Articolo("Mouse", 2.0));
             ArticoliOrdinati.add(new Articolo("Tastiere", 2.0));
         }
-        MEINN meinn = new MEINN();
+        BillImpl meinn = new BillImpl();
         try {
             meinn.getOrderPrice(ArticoliOrdinati, new Cliente(10, "Mario", "Rossi", "Milano"));
         } catch (BillException e) {
@@ -82,7 +84,7 @@ public class MEINNTest {
             ArticoliOrdinati2.add(new Articolo("Processori", 10.0));
         }
         ArticoliOrdinati2.add(new Articolo("Processori", 5.0));
-        MEINN meinn = new MEINN();
+        BillImpl meinn = new BillImpl();
         try {
             // visto il come ho costruito la lista di articoli, il valore che mi aspetto,
             // considerando lo sconto è di 72.50
@@ -99,7 +101,7 @@ public class MEINNTest {
             ArticoliOrdinati2.add(new Articolo("Mouse", 10.0));
         }
         ArticoliOrdinati2.add(new Articolo("Mouse", 5.0));
-        MEINN meinn = new MEINN();
+        BillImpl meinn = new BillImpl();
         try {
             // visto il come ho costruito la lista di articoli, il valore che mi aspetto,
             // considerando lo sconto è di 130.00
@@ -115,7 +117,7 @@ public class MEINNTest {
         for (int i = 0; i < 10; i++) {
             ArticoliOrdinati2.add(new Articolo("Mouse", 100.0));
         }
-        MEINN meinn = new MEINN();
+        BillImpl meinn = new BillImpl();
         try {
             // visto il come ho costruito la lista di articoli, il valore che mi aspetto,
             // considerando lo sconto del 10% effettuato, è di 918.00 (a partire dai 1020.0
