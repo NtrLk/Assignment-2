@@ -30,6 +30,7 @@ public class Assignment2 {
 	
 	public static void main(String [] args) {
 			Cliente aux = null;
+			int numeroRegali = 0;
 			
 			clienti.add(new Cliente(16,"VV", "rterc","Padova"));
 			clienti.add(new Cliente(15,"XV", "rterc","Padova"));
@@ -100,25 +101,30 @@ public class Assignment2 {
 			
 			List<Cliente> clientela = Ordini.keySet().stream().filter( C -> C.getAge() < 18).collect(Collectors.toList());
 
-			int max = clientela.size();
-			int random = 0;
-			LocalTime cd;
-			int counter = 10;
-		
-			for (int i = 0; i < counter; i++) {
-				random = ThreadLocalRandom.current().nextInt(0, (max));	
-				Cliente auxx = clientela.get(random);
+			regaloDieciOrdini(clientela);
+	}
+	
+	public static void regaloDieciOrdini(List<Cliente> clientela) {
+		int max = clientela.size();
+		int random = 0;
+		LocalTime cd;
+		int counter = 10;
+	
+		for (int i = 0; i < counter; i++) {
+			random = ThreadLocalRandom.current().nextInt(0, (max));	
+			Cliente auxx = clientela.get(random);
+			
+			cd = LocalTime.parse(Ordini.get(auxx).getOrario());
+			
+			if(cd.isAfter(LocalTime.parse("17:59")) && cd.isBefore(LocalTime.parse("20:00"))) {
+				Ordini.get(auxx).setImporto(0.0);
+				max--;
+				clientela.remove(random);
 				
-				cd = LocalTime.parse(Ordini.get(auxx).getOrario());
-				
-				if(cd.isAfter(LocalTime.parse("17:59")) && cd.isBefore(LocalTime.parse("20:00"))) {
-					Ordini.get(auxx).setImporto(0.0);
-					max--;
-					counter++;
-					clientela.remove(random);
-					System.out.println("L'acquisto del cliente --> " +"Nome :"+ auxx.getNome() + " Cognome : " + auxx.getCognome() + " viene offertto dal negozio.");
-				}
+				System.out.println("L'acquisto del cliente --> " +"Nome :"+ auxx.getNome() + " Cognome : " + auxx.getCognome() + " viene offertto dal negozio.");
 			}
+			
+		}
 	}
 
 	public static void creazioneOrdine(Cliente cliente, Integer ora, Integer minuti) {
