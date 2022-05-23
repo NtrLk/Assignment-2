@@ -18,12 +18,17 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 public class Assignment2 {
+	
 	static double valoreDaPagare = 0.0;
 	static BillImpl val = new BillImpl();
 	static List<Cliente> clienti = new ArrayList<Cliente>();
 	static HashMap<Cliente, Ordine> Ordini = new HashMap<Cliente, Ordine>();
+	int c;
+	public Assignment2() {
+		c = 0;
+	}
+	
 	public static void main(String [] args) {
-			double valoreDaPagare = 0.0;
 			Cliente aux = null;
 			
 			clienti.add(new Cliente(16,"VV", "rterc","Padova"));
@@ -81,18 +86,16 @@ public class Assignment2 {
 			creazioneOrdine(aux,18,45);
 			
 
-			// fare 3 if prima per null, empty e >30 per evitare il try-catch
-
+		
 			for(Cliente c : clienti) {
-				try
-				{
-				valoreDaPagare = val.getOrderPrice(Ordini.get(c).getLista(), c);
-				Ordini.get(c).setImporto(valoreDaPagare);
-				System.out.println("Il totale per l'ordine di : " + aux.getNome() + " " + aux.getCognome() + " -->  " + valoreDaPagare);
+		
+				try {
+					// assegna l'importo ad un dato ordine.
+					val.passaLista(Ordini.get(c), c);
+				} catch (BillException e) {
+					// Va bene
 				}
-				catch(BillException e) {
-					System.out.println(e.getMessage());
-				}
+				
 			}
 			
 			List<Cliente> clientela = Ordini.keySet().stream().filter( C -> C.getAge() < 18).collect(Collectors.toList());
@@ -100,9 +103,9 @@ public class Assignment2 {
 			int max = clientela.size();
 			int random = 0;
 			LocalTime cd;
-			int counter = 0;
-			
-			while(counter != 10) { 
+			int counter = 10;
+		
+			for (int i = 0; i < counter; i++) {
 				random = ThreadLocalRandom.current().nextInt(0, (max));	
 				Cliente auxx = clientela.get(random);
 				
@@ -116,7 +119,6 @@ public class Assignment2 {
 					System.out.println("L'acquisto del cliente --> " +"Nome :"+ auxx.getNome() + " Cognome : " + auxx.getCognome() + " viene offertto dal negozio.");
 				}
 			}
-			
 	}
 
 	public static void creazioneOrdine(Cliente cliente, Integer ora, Integer minuti) {

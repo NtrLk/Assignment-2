@@ -5,16 +5,19 @@
 
 package it.unipd.mtss.business;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import it.unipd.mtss.model.Articolo;
 import it.unipd.mtss.model.Articolo.itemType;
 import it.unipd.mtss.business.exeption.BillException;
 import it.unipd.mtss.model.Cliente;
+import it.unipd.mtss.model.Ordine;
 
 public class BillImpl implements BIll {
 	public BillImpl() {}
+	
+	
 	
 	@Override
 	public double getOrderPrice(List<Articolo> itemsOrdered, Cliente user) throws BillException {
@@ -34,14 +37,15 @@ public class BillImpl implements BIll {
 				int numeroMouse = 0;
 				int numeroTastiere = 0;
 				
-				Double menoCaroTastiere = 0.0;
-				Double menoCaroMouse = 0.0;
-				Double menoCaroProcessori = 0.0;
+				Double menoCaroTastiere = -0.00;
+				Double menoCaroMouse = -0.00;
+				Double menoCaroProcessori = -0.00;
+			
 				
 				Articolo aux = null;
 				for(int i = 0; i < itemsOrdered.size(); i++) {
 					aux = itemsOrdered.get(i);
-					
+				
 					if(aux.getNome() == itemType.Processori) {
 						numeroProcessori++;
 						menoCaroProcessori = aux.getPrezzo();
@@ -112,5 +116,9 @@ public class BillImpl implements BIll {
 		}
 		
 		return importo;
+	}
+	
+	public void passaLista(Ordine lista, Cliente user) throws BillException {
+		lista.setImporto(this.getOrderPrice(lista.getLista(), user));
 	}
 }

@@ -25,7 +25,7 @@
 	
 	<module name="EmptyCatchBlock">
 	  <property name="commentFormat" value="// Va bene"/>
-	  <property name="exceptionVariableName" value="expected|ignore"/>
+	  <property name="exceptionVariableName" value="expected|ignore|e"/>
 	</module>
 	
 	<module name="IllegalImport"/>  

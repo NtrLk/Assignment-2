@@ -28,7 +28,6 @@ public class BillImplTest {
         ArticoliOrdinati.add(new Articolo("Processori", 1.0));
         ArticoliOrdinati.add(new Articolo("Mouse", 1.0));
         ArticoliOrdinati.add(new Articolo("Tastiere", 1.0));
-        Cliente cliente = new Cliente(10, "Mario", "Rossi", "Milano");
     }
 
     @Test
@@ -138,14 +137,6 @@ public class BillImplTest {
         ArticoliOrdinati3.add(new Articolo("Mouse", 5.0));
         ArticoliOrdinati3.add(new Articolo("Tastiere", 5.0));
     }
-
-    @Test
-    public void testGetOrderPrice() {
-        Articolo aux = new Articolo("Tastiere", 10.00);
-        double x = 20.00;
-        assertEquals(itemType.Tastiere, aux.getNome());
-        assertTrue(aux.getPrezzo() < x);
-        x = aux.getPrezzo();
-        assertTrue(aux.getPrezzo() == x);
-    }
+    
+   
 }

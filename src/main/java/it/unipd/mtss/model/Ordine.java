@@ -8,10 +8,6 @@ package it.unipd.mtss.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipd.mtss.model.Articolo.itemType;
-
-import java.time.DateTimeException;
-import java.time.LocalTime;
 
 public class Ordine {
 	private double importo = 0.0;

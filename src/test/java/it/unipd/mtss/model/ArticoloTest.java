@@ -1,6 +1,8 @@
 package it.unipd.mtss.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -83,7 +85,7 @@ public class ArticoloTest {
 	@Test
 	public void testReturnGetNome()
 	{
-		new Articolo("SchedeMadri",10.0);
+		assertEquals(articolo.getNome(),itemType.Mouse);
 	}
 
 	// controllo che in getNome() il nome non sia null
@@ -91,6 +93,9 @@ public class ArticoloTest {
 	public void testNomeNotNullGetNome() {
 		new Articolo(null, 0.0).getNome();
 	}
+	
+
+	
 }
 
 // test3
