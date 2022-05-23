@@ -90,8 +90,8 @@ public class Assignment2 {
 			for(Cliente c : clienti) {
 		
 				try {
-					// assegna l'importo ad un dato ordine.
-					val.passaLista(Ordini.get(c), c);
+					double valore = val.getOrderPrice(Ordini.get(c).getLista(), c);
+					Ordini.get(c).setImporto(valore);
 				} catch (BillException e) {
 					// Va bene
 				}

@@ -17,8 +17,6 @@ import it.unipd.mtss.model.Ordine;
 public class BillImpl implements BIll {
 	public BillImpl() {}
 	
-	
-	
 	@Override
 	public double getOrderPrice(List<Articolo> itemsOrdered, Cliente user) throws BillException {
 		double importo = 0.0;
@@ -87,6 +85,7 @@ public class BillImpl implements BIll {
 					
 				}
 				
+				// tutti gli if sotto sono altre issue
 				if(numeroProcessori > 5) {
 					importo = importo - (menoCaroProcessori / 2);
 				}
@@ -116,9 +115,5 @@ public class BillImpl implements BIll {
 		}
 		
 		return importo;
-	}
-	
-	public void passaLista(Ordine lista, Cliente user) throws BillException {
-		lista.setImporto(this.getOrderPrice(lista.getLista(), user));
 	}
 }
