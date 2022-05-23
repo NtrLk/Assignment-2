@@ -1,4 +1,4 @@
 /target/
-./.classpath
-./.project
-./Checkstyle.xml.bak
+.classpath
+.project
+Checkstyle.xml.bak
